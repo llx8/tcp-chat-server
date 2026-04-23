@@ -82,6 +82,7 @@ public:
     // 接收一帧，处理粘包
     static bool recv_frame(int fd, std::string& buffer, Message& out_msg) {
         while (true) {
+            if (buffer.size() > 65536) { buffer.clear(); return false; }
             if (buffer.size() < 4) {
                 if (!read_more(fd, buffer)) return false;
                 continue;
