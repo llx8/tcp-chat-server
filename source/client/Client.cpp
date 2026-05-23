@@ -66,6 +66,7 @@ int main() {
         return 1;
     }
 
+    std::cout << "你好，欢迎使用聊天室！\n";
     std::cout << "Enter username to login: ";
     std::string raw_name;
     std::getline(std::cin, raw_name);
